@@ -22,7 +22,7 @@ pub fn spawn_pty_with_shell(shell: String) -> OwnedFd {
                     master
                 } else {
                     Command::new(shell).spawn().expect("failed to spawn");
-                    std::thread::sleep(std::time::Duration::from_millis(2000));
+                    std::thread::sleep(std::time::Duration::from_millis(1000));
                     std::process::exit(0);
                 }
             },
