@@ -11,7 +11,7 @@ cargo run
 or 
 
 ```sh
-cargo watch -q -c -w src/ -x run
+cargo-watch -q -c -w src/ -x run
 ```
 
 ## LICENSE
