@@ -1,6 +1,6 @@
 # oxide
 
-Something is cooking 
+Successfully spawned a PTY with a shell and rendered its output on the emulator.
 
 ## How to run
 
