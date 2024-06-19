@@ -1,6 +1,8 @@
 [package]
 name = "oxide"
 version = "0.1.0"
+authors = ["Sachin Beniwal <sachinbeniwal0101@gmail.com>"]
 edition = "2021"
 
 [dependencies]
+eframe = "0.27.2"
