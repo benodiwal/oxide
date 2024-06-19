@@ -1,24 +1,22 @@
-use nix::pty::ForkptyResult;
-
 mod ui;
 mod env;
 mod shell;
+mod constants;
 
 fn main() -> Result<(), eframe::Error> {
-    let shell = env::read_env(shell::SHELL);
-    println!("{}", shell);
+    let default_shell = env::read_env(constants::SHELL);
+    let stdout_fd = shell::spawn_pty_with_shell(default_shell);
+    let mut read_buffer = vec![];
 
-    unsafe {
-        let res = nix::pty::forkpty(None, None).unwrap();
-        match res {
-            ForkptyResult::Parent { child, master } => {
-                println!("Child {:?}", child);
-                println!("Master {:?}", master);
+    loop {
+        match shell::read_from_fd(&stdout_fd) {
+            Some(mut read_bytes) => {
+                read_buffer.append(&mut read_bytes);
             },
-            ForkptyResult::Child => {
-                println!("Child Process");
-            },
+            None => {
+                println!("{:?}", String::from_utf8(read_buffer).unwrap());
+                std::process::exit(1);
+            }
         }
     }
-    ui::run()
 }

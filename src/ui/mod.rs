@@ -1,8 +1,10 @@
 use eframe::{egui, Result};
+use crate::constants;
+
 mod util;
 
 pub fn run() -> Result<()> {
-    eframe::run_native("Oxide", util::native_options(), Box::new(|cc| Box::new(Oxide::new(cc))))
+    eframe::run_native(constants::OXIDE, util::native_options(), Box::new(|cc| Box::new(Oxide::new(cc))))
 }
 
 #[derive(Default)]
