@@ -1,6 +1,10 @@
 # oxide
 
-Successfully spawned a PTY with a shell and rendered its output on the emulator.
+Successfully rendered command output on the emulator screen 🎉.  
+
+
+![Successfully rendered command output on the emulator screen](progress/stage1.png)
+
 
 ## How to run
 
