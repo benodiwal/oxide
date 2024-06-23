@@ -1,5 +1,6 @@
 use std::env::{self, VarError};
 
+#[allow(unused)]
 pub fn read_env(key: &str) -> String {
     let res = env::var(key);
     match res {

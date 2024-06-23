@@ -15,7 +15,7 @@ pub fn read_from_fd(fd: &OwnedFd) -> Option<Vec<u8>> {
     }
 }
 
-pub fn spawn_pty_with_shell(_: String) -> Result<OwnedFd, String> {
+pub fn spawn_pty_with_shell() -> Result<OwnedFd, String> {
     unsafe{
         let res = forkpty(None, None);
         match res {
